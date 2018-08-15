@@ -1,0 +1,36 @@
+{{- $proto := index .Site.Data.proto.files 0 }}
+{{- $package := index $proto "package" }}
+{{- $messages := index $proto "messages" }}
+{{- $enums := index $proto "enums" }}
+
+Package: <strong>{{ $package }}</strong>
+
+<h3 class="is-size-3">Messages</h3>
+
+<ul>
+  {{- range $messages }}
+  <li>
+    Name: {{ .name }}
+  </li>
+  {{- end }}
+</ul>
+
+<h3 class="is-size-3">Enums</h3>
+
+<ul>
+  {{- range $enums }}
+  <li>Name: {{ .name }}</li>
+  <li>
+    Values:
+    <ul>
+      {{- range .values }}
+      <li>
+        Name: {{ .name }}. Number: {{ .number }}.
+      </li>
+      {{- end }}
+    </ul>
+  </li>
+  {{- end }}
+</ul>
+
+{{ $proto }}
