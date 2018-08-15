@@ -6,3 +6,6 @@ node_modules/
 
 # Hugo-generated assets
 public/
+
+# JSON generated for Protobuf definition
+proto.json
