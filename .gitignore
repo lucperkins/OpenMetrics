@@ -1,8 +1,2 @@
 # macOS stuff
 .DS_Store
-
-# Node.js artifacts (mostly Sass sources)
-node_modules/
-
-# Hugo-generated assets
-public/

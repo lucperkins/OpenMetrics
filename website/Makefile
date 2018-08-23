@@ -6,3 +6,6 @@ build: get-sass
 
 dev:
 	hugo server --disableFastRender
+
+protobuf-docs:
+	scripts/protobuf-docs.sh

@@ -1,0 +1,8 @@
+# Node.js assets
+node_modules/
+
+# Hugo-generated assets
+public/
+
+# JSON for Protobuf docs
+data/protobuf.json
