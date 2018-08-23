@@ -1,0 +1,68 @@
+{{- $proto := index .Site.Data.protobuf.files 0 }}
+{{- $package := index $proto "package" }}
+{{- $filename := index $proto "name" }}
+{{- $messages := index $proto "messages" }}
+{{- $enums := $proto.enums }}
+
+<p>
+  Package: <code>{{ $package }}</code>
+</p>
+
+<p>
+  Filename: <code>{{ $filename }}</code>
+</p>
+
+<h4>
+  Messages
+</h4>
+
+<table>
+    <thead>
+      <tr>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{- range $messages }}
+      <tr>
+        <td>{{ .name }}</td>
+      </tr>
+      {{- end }}
+    </tbody>
+  </table>
+
+<h4>
+  Enums
+</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Full name</th>
+      <th>Possible values</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{- range $enums }}
+    {{- $values := .values }}
+    <tr>
+      <td>
+        <code>{{ .name }}</code>
+      </td>
+      <td>
+        <code>{{ .fullName }}</code>
+      </td>
+      <td>
+        {{- range $values }}
+        <code>{{ .name }}</code>
+        {{- end }}
+      </td>
+    </tr>
+    {{- end }}
+  </tbody>
+</table>
+
+<hr />
+
+{{ $proto }}

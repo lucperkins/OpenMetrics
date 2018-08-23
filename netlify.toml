@@ -5,7 +5,7 @@
 [build]
 base    = "website"
 publish = "website/public"
-command = "make build"
+command = "make build-linux"
 
 [build.environment]
 HUGO_VERSION = "0.46"
