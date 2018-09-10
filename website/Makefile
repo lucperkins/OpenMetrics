@@ -3,14 +3,13 @@ PROTOC_VERSION=3.6.0
 get-sass:
 	yarn
 
-build-linux: setup-linux
+netlify-production-build: get-sass
 	hugo
 
-dev-linux: setup-linux server
+netlify-staging-build: get-sass
+	hugo -b $(DEPLOY_PRIME_URL)
 
-dev-macos: setup-macos server
-
-server:
+dev:
 	hugo server --disableFastRender
 
 setup-linux: protobuf-docs-setup-linux get-sass
