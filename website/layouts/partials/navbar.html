@@ -1,0 +1,30 @@
+{{- $logo := .Site.Params.logo | relURL }}
+<nav class="navbar has-fixed-top">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <img src="{{ $logo }}">
+      </a>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Formats
+          </a>
+
+          <div class="navbar-dropdown is-boxed">
+            <a class="navbar-item" href="/formats/text">
+              Text
+            </a>
+
+            <a class="navbar-item" href="/formats/protobuf">
+              Protocol Buffers
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

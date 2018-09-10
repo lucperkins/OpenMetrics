@@ -1,0 +1,40 @@
+{{ define "main" }}
+{{- $description := .Params.description }}
+{{- $thisPageUrl := .URL }}
+{{- partial "navbar.html" . }}
+<section class="hero is-primary">
+  <div class="container">
+    <div class="hero-body">
+      <h1 class="title is-1 is-spaced">
+        {{ .Title }}
+      </h1>
+      {{- with $description }}
+      <h2 class="subtitle is-3">
+        {{ . }}
+      </h2>
+      {{- end }}
+    </div>
+
+    <div class="hero-foot">
+      <nav class="tabs is-boxed">
+        <ul>
+          {{- range where .Site.RegularPages "Section" .Section }}
+          {{- $isCurrentPage := eq $thisPageUrl .URL }}
+          <li{{ if $isCurrentPage }} class="is-active"{{ end }}>
+            <a href="{{ .URL }}">
+              {{ .Title }}
+            </a>
+          </li>
+          {{- end }}
+        </ul>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<section class="section container">
+  <article class="content is-medium">
+    {{ .Content }}
+  </article>
+</section>
+{{ end }}
