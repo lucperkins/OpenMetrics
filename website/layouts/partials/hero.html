@@ -1,8 +1,8 @@
 {{- $logo           := .Site.Params.logo }}
 {{- $description    := .Site.Params.description }}
 {{- $subdescription := .Site.Params.subdescription }}
-<section class="hero is-fullheight has-text-centered">
-  <div class="hero-head">
+<section class="hero is-fullheight has-text-centered has-background-black">
+  <div class="hero-head has-background-white">
     {{- partial "navbar.html" . }}
   </div>
 
@@ -16,7 +16,7 @@
     </div>
   </div>
 
-  <div class="hero-foot">
+  <div class="hero-foot has-text-white">
     <div class="container">
       <span class="is-size-4 is-size-5-touch">
         {{ $subdescription | markdownify }}

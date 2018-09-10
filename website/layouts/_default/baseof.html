@@ -1,6 +1,6 @@
 {{- $pageType := cond (.IsHome) "home" .Section }}
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
+<html lang="{{ .Site.LanguageCode }}"{{ if not .IsHome }} class="has-navbar-fixed-top"{{ end }}>
   <head>
     {{- partial "meta.html" . }}
     <title>{{ block "title" . }}{{ .Site.Title  }}{{ end }}</title>

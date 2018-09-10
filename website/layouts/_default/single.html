@@ -16,7 +16,7 @@
     </div>
 
     <div class="hero-foot">
-      <nav class="tabs is-boxed">
+      <nav class="tabs is-medium is-boxed">
         <ul>
           {{- range where .Site.RegularPages "Section" .Section }}
           {{- $isCurrentPage := eq $thisPageUrl .URL }}

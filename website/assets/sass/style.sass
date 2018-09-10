@@ -16,7 +16,7 @@ $family-sans-serif: "Gotham", sans-serif
 $navbar-burger-color: $primary !important
 $navbar-height: $navbar-base-height
 $navbar-item-img-max-height: $navbar-base-height * .6
-$navbar-item-hover-background-color: $white
+$navbar-item-hover-background-color: none
 $link: $primary
 $strong-color: $cncf-blue
 
@@ -44,10 +44,10 @@ $strong-color: $cncf-blue
   background-image: url($url)
 
 .page
-  &.home
-    .has-background-image
-      background-color: $white-ter
-      +bg-image("/images/hero-bg.png")
+  .has-background-image
+    background-color: $white-ter
+    +bg-image("/images/hero-bg.png")
 
+  &.home
     .hero-foot
       margin: 1rem 4rem
