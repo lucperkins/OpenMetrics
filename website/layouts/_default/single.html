@@ -1,0 +1,38 @@
+{{ define "main" }}
+{{- $docs := where (.Site.RegularPages) "Section" "docs" }}
+{{- $currentPageUrl := .URL }}
+{{ partial "navbar.html" . }}
+<section class="hero is-primary">
+  <div class="container">
+    <div class="hero-body">
+      <h1 class="is-size-2 is-size-3-mobile">
+        {{ .Title }}
+      </h1>
+    </div> <!-- .hero-body -->
+
+    <div class="hero-foot">
+      <nav class="tabs is-boxed">
+        <ul>
+          {{- range $docs }}
+          {{- $title := cond (isset .Params "short") .Params.short .Title }}
+          {{- $isCurrentPage := eq $currentPageUrl .URL }}
+          <li{{ if $isCurrentPage }} class="is-active"{{ end }}>
+            <a href="{{ .URL }}">
+              {{ $title }}
+            </a>
+          </li>
+          {{- end }}
+        </ul>
+      </nav>
+    </div> <!-- .hero-foot -->
+  </div> <!-- .container -->
+</section> <!-- .hero -->
+
+<section class="section">
+  <div class="container">
+    <article class="content">
+      {{ .Content }}
+    </article> <!-- article.content -->
+  </div> <!-- .container -->
+</section> <!-- .section -->
+{{ end }}

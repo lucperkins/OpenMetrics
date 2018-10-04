@@ -1,0 +1,46 @@
+{{- $isNotHome := not .IsHome }}
+{{- $logoUrl   := "images/logo/logo-with-text.png" | relURL }}
+{{- $docs      := where (.Site.RegularPages) "Section" "docs" }}
+<nav class="navbar is-fixed-top{{ if $isNotHome }} has-shadow{{ end }}">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="{{ .Site.BaseURL }}">
+        <img src="{{ $logoUrl }}" alt="OpenMetrics navbar logo">
+      </a>
+
+      <div class="navbar-burger burger" data-target="navbarDropdownMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div> <!-- .navbar-burger -->
+    </div> <!-- .navbar-brand -->
+
+    <div class="navbar-menu" id="navbarDropdownMenu">
+      {{- if $isNotHome }}
+      <div class="navbar-start is-hidden-touch">
+        <span class="navbar-item is-size-5 is-size-6-mobile has-text-weight-bold">
+          {{ .Title }}
+        </span>
+      </div>
+      {{- end }}
+
+
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Docs
+          </a>
+
+          <div class="navbar-dropdown">
+            {{- range $docs }}
+            {{- $title := cond (isset .Params "short") .Params.short .Title }}
+            <a class="navbar-item" href="{{ .URL }}">
+              {{ $title }}
+            </a>
+            {{- end }}
+          </div>
+        </div>
+      </div>
+    </div> <!-- .navbar-end -->
+  </div> <!-- .container -->
+</nav> <!-- nav.navbar -->
