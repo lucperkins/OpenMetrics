@@ -5,3 +5,5 @@ weight: 2
 ---
 
 Here is some documentation, y'all.
+
+{{< protobuf-docs >}}
