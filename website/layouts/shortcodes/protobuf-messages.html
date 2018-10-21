@@ -1,0 +1,25 @@
+{{- $proto := index .Site.Data.protobuf.files 0 }}
+{{- $messages := $proto.messages }}
+{{- $coreTypes := (slice "double" "string" "uint64") }}
+<div class="card">
+  <div class="card-content">
+    <p class="title">
+      Messages
+    </p>
+
+    {{- range $messages }}
+    <div class="card">
+      <div class="card-content">
+        <h4>
+          Type:
+          <code>
+            {{ .name }}
+          </code>
+        </h4>
+      </div>
+    </div>
+
+    <br />
+    {{- end }}
+  </div>
+</div>
